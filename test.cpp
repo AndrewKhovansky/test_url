@@ -6,7 +6,6 @@
 using namespace std;
  
 
-
 int main(int argc, char *argv[])
 {
 	if(argc < 3) //Check for arguments
@@ -24,13 +23,21 @@ int main(int argc, char *argv[])
 	
 	enum Method method = parser.get_method(); //Get method 
 	
-	if(method == MethodPUT) cout << "Method: PUT\r\n";
-	if(method == MethodGET) cout << "Method: GET\r\n";
-	if(method == MethodPOST) cout << "Method: POST\r\n";
+	if(method == MethodPUT)    cout << "Method: PUT\r\n";
+	if(method == MethodGET)    cout << "Method: GET\r\n";
+	if(method == MethodPOST)   cout << "Method: POST\r\n";
 	if(method == MethodDELETE) cout << "Method: DELETE\r\n";
-	if(method == MethodNONE) cout << "Method: NONE\r\n";
+	if(method == MethodNONE)   cout << "Method: NONE\r\n";
 	
-	cout << parser.get_element(index) << "\r\n";
+	cout << "Element " << index << ": " << parser.get_element(index) << "\r\n";
 	
+	
+	std::map<std::string,std::string> m = parser.get_keys_values();
+
+
+	for (const auto& [key, value] : m)
+	std::cout << key << " = " << value << "\r\n";
+	
+
 	return 1;
 }

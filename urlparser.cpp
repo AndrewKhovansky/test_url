@@ -57,14 +57,35 @@ std::string URLParser::get_element(int index) //Get an element
 
 std::map<std::string,std::string> URLParser::get_keys_values()
 {
-	
 	std::map<std::string,std::string> outmap;
+	std::vector<std::string>  strarray; //Init a vector (array of strings)
+	
+	
+//std::vector< std::map<std::string,std::string> > outmap_vector;
 	
 	if(input.length() == 0)
 		return outmap;
+	//	return outmap_vector;
+
+	std::string arg_begin = input.substr(input.find("?") + 1, (input.length()-1)); //Get a substring starting after "?" symbol
+
+	std::stringstream streamData(arg_begin); //Create stringstream
+    std::string val;
+
+    while (std::getline(streamData, val, '&')) //Get lines from stringstream to a val variable. '&' is a delimiter 
+	{
+		std::stringstream streamData(val); //Create stringstream
+		std::string key;
+		std::string value;
+		
+		std::getline(streamData, key, '='); //Key before "="
+		std::getline(streamData, value, '='); //Value after "="
+		
+		outmap.emplace(key,value);
+    }
 	
+	return outmap;
 	
-	std::string arg_begin = input.substr(input.find("&") + 1, (input.length()-1)); //Get a substring starting after "&" symbol
-	
-	
+	//return outmap_vector;
+
 }
