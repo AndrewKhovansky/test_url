@@ -22,9 +22,3 @@ class URLParser
 	}
 };
 
-
-int main()
-{
-
-
-}
