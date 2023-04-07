@@ -1,3 +1,3 @@
-g++ test.cpp urlparser.cpp -o tst.exe
+g++ urlparser.cpp test.cpp -o tst.exe
 
 pause

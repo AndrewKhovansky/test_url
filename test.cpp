@@ -1,7 +1,10 @@
 #include <stdio.h>
-
-
-class URLParser parser;
+#include <iostream>
+#include <string>
+#include "urlparser.h"
+using namespace std;
+ 
+URLParser parser("AAAA");
 
 int main()
 {
