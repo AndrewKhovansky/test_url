@@ -29,15 +29,15 @@ int main(int argc, char *argv[])
 	if(method == MethodDELETE) cout << "Method: DELETE\r\n";
 	if(method == MethodNONE)   cout << "Method: NONE\r\n";
 	
-	cout << "Element " << index << ": " << parser.get_element(index) << "\r\n";
+	cout << "Element " << index << ": " << parser.get_element(index) << "\r\n"; //Get and print element value
 	
 	
 	
-	std::map<std::string,std::string> m = parser.get_keys_values();
+	std::map<std::string,std::string> m = parser.get_keys_values(); //Get key-value map
 
 
-	for (const auto& [key, value] : m)
-	std::cout << key << " = " << value << "\r\n";
+	for (const auto& [key, value] : m) 
+		std::cout << key << " = " << value << "\r\n"; // Print key-value pairs
 	
 
 	return 1;

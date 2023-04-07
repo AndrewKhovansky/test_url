@@ -55,17 +55,13 @@ std::string URLParser::get_element(int index) //Get an element
 }
 
 
-std::map<std::string,std::string> URLParser::get_keys_values()
+std::map<std::string,std::string> URLParser::get_keys_values() //Key-value parser
 {
 	std::map<std::string,std::string> outmap;
 	std::vector<std::string>  strarray; //Init a vector (array of strings)
 	
-	
-//std::vector< std::map<std::string,std::string> > outmap_vector;
-	
-	if(input.length() == 0)
+	if(input.length() == 0) //Check line length
 		return outmap;
-	//	return outmap_vector;
 
 	std::string arg_begin = input.substr(input.find("?") + 1, (input.length()-1)); //Get a substring starting after "?" symbol
 
@@ -81,11 +77,8 @@ std::map<std::string,std::string> URLParser::get_keys_values()
 		std::getline(streamData, key, '='); //Key before "="
 		std::getline(streamData, value, '='); //Value after "="
 		
-		outmap.emplace(key,value);
+		outmap.emplace(key,value); //Put key-value pair to a map
     }
 	
 	return outmap;
-	
-	//return outmap_vector;
-
 }
