@@ -10,13 +10,13 @@ enum Method
 
 class URLParser
 {
-	std::string *input;
+	std::string input;
 	
 public:
-	URLParser(const char* input);
+	URLParser(const char* instring);
 	
 	enum Method get_method(void);
-	get_element(int index);
+	std::string get_element(int index);
 	
 };
 
