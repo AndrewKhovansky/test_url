@@ -41,7 +41,7 @@ std::string URLParser::get_element(int index) //Get an element
     std::stringstream streamData(input); //Create stringstream
     std::string val;
 
-    while (std::getline(streamData, val, '/')) //Read lines from stringstream into a variable. '/' is a delimiter 
+    while (std::getline(streamData, val, '/')) //Get lines from stringstream to a val variable. '/' is a delimiter 
 	{
         strarray.push_back(val); //Append value to the end of array
     }
