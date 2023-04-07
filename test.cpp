@@ -16,6 +16,16 @@ int main(int argc, char *argv[])
 	}
 	
 	
+	if(argc < 3)
+	{
+		cout << "No element index given\r\n";
+		return 1;
+	}
+	
+	int index = atoi(argv[2]);
+	
+	
+	
 	URLParser parser(argv[1]);
 	
 	
@@ -27,8 +37,7 @@ int main(int argc, char *argv[])
 	if(method == MethodDELETE) cout << "Method: DELETE\r\n";
 	if(method == MethodNONE) cout << "Method: NONE\r\n";
 	
-	
-	cout << parser.get_element(2);
+	cout << parser.get_element(index);
 	
 	return 1;
 }

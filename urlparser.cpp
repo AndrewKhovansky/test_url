@@ -37,27 +37,22 @@ enum Method URLParser::get_method(void)
 
 std::string URLParser::get_element(int index)
 {
-	//Define the dynamic array variable of strings
-    std::vector<std::string>  outputArray;
-
-    //Construct a stream from the string
+    std::vector<std::string>  strarray;
     std::stringstream streamData(input);
-
-    /*
-    Declare string variable that will be used
-    to store data after split
-    */
     std::string val;
 
-    /*
-    The loop will iterate the splitted data and
-    insert the data into the array
-    */
     while (std::getline(streamData, val, '/')) {
-        outputArray.push_back(val);
+        strarray.push_back(val);
     }
-								 
-	return outputArray[index];
+				
+    if(strarray.size() < (index + 4))
+	{
+		return "";
+	}
+
+
+				
+	return strarray[index + 3];
 								 
 								 
 }
