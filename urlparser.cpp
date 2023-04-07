@@ -10,6 +10,7 @@
 #include <vector>
 #include <iterator>
 #include <sstream>   
+#include <map>
 #include "urlparser.h"
 using namespace std;
 
@@ -51,4 +52,19 @@ std::string URLParser::get_element(int index) //Get an element
 	}
 		
 	return strarray[index + 3]; //Skip three '/' delimiters
+}
+
+
+std::map<std::string,std::string> URLParser::get_keys_values()
+{
+	
+	std::map<std::string,std::string> outmap;
+	
+	if(input.length() == 0)
+		return outmap;
+	
+	
+	std::string arg_begin = input.substr(input.find("&") + 1, (input.length()-1)); //Get a substring starting after "&" symbol
+	
+	
 }
